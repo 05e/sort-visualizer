@@ -68,4 +68,5 @@ Skeleton project folder by lutrarutra https://github.com/lutrarutra/SFML-Project
 
 ## To Do:
 - Resizing messes up height after regenerating (see ColumnManager)
+- Merge sort windows crash
 - More algorithms?
