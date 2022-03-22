@@ -1,5 +1,7 @@
-# Sort-Visualizer
-C++/SFML sorting algorithm visualization using columns and gradients
+# sort-visualizer
+Cross Platform C++/SFML Sorting Visualization
+
+![Example Image](https://i.imgur.com/uDj7wBr.png)
 
 # Algorithms
 - Quick sort
@@ -8,6 +10,19 @@ C++/SFML sorting algorithm visualization using columns and gradients
 - Selection sort
 - Merge sort
 - Radix sort
+- ...?
+
+# How to use
+### Keybinds:
+- [1]: Quick sort
+- [2]: Bubble sort
+- [3]: Insertion sort
+- [4]: Selection sort
+- [5]: Merge sort
+- [6]: Radix sort
+- [R]: Shuffle Current Columns
+- [G]: Generate New Columns
+- [SPACE]: Start sorting
 
 # How to run
 ## Requirements
@@ -37,7 +52,7 @@ Install CMake, to test if you have it installed simply type `cmake --version` in
 - Done!
 
 # Not working?
-FOr further help, information, and requirements visit the github of the project template I used: https://github.com/lutrarutra/SFML-Project-Template
+For further help, information, and requirements visit the github of the project template I used: https://github.com/lutrarutra/SFML-Project-Template
 
 # SFML
 This project uses the SFML library version 2.5.1.
@@ -45,3 +60,7 @@ If you wish to update SFML you can download the latest version directly from the
 
 # Credits
 Skeleton project folder by lutrarutra https://github.com/lutrarutra/SFML-Project-Template
+
+## To Do:
+- MacOS Resizing messes up columns
+- ?
