@@ -22,11 +22,14 @@
 
 int main()
 {
+    int COLUMNS_NUMBER = 100;
+
+
     srand(time(NULL));
 
     WindowManager windowManager(1000, 600);
     EventManager eventManager(&windowManager);
-    ColumnManager columnManager(111, &windowManager, &eventManager);
+    ColumnManager columnManager(COLUMNS_NUMBER, &windowManager, &eventManager);
     SortManager sortManager(&windowManager, &columnManager);
 
 

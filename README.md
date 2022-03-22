@@ -23,6 +23,10 @@ Cross Platform C++/SFML Sorting Visualization
 - [R]: Shuffle Current Columns
 - [G]: Generate New Columns
 - [SPACE]: Start sorting
+### Custom Array Size:
+- Open `main.cpp` on any text editor
+- Locate `int COLUMNS_NUMBER = 100`
+- Edit the value to whatever you like (numbers higher than 1000 may cause slow rendering)
 
 # How to run
 ## Requirements
