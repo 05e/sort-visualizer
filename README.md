@@ -50,7 +50,7 @@ Install CMake, to test if you have it installed simply type `cmake --version` in
 - Open terminal and set the directory as the project folder
 - Type `mkdir build` and press enter to create the build folder
 - Type `cd build` and press enter to access the build folder
-- Type `cmake ..` and press enter to link the files using cmake (`cmake .. -G "MinGW Makefiles` for Windows)
+- Type `cmake ..` and press enter to link the files using cmake (`cmake -G "MinGW Makefiles ..` for Windows)
 - Type `make` and press enter to compile & build to the `/build` folder (`mingw32-make.exe` for Windows)
 - Type `./a` and press enter to run the program
 - Done!
