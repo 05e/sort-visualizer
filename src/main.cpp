@@ -52,12 +52,19 @@ int main()
                     *  [4] - SELECTIONSORT
                     *  [5] - MERGESORT
                     *  [6] - RADIXSORT
+                    * 
                     *  [R] - SHUFFLE
+                    *  [G] - GENERATE NEW COLUMNS
                     *  [SPACE] - SORT
                     */
 
                     if(event.key.code == sf::Keyboard::R){
                         columnManager.shuffle();
+                        sortManager.setSorted(false);
+                    }
+
+                    if(event.key.code == sf::Keyboard::G){
+                        columnManager.generate(sortManager.getSortType());
                         sortManager.setSorted(false);
                     }
 

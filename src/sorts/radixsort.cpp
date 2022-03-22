@@ -39,7 +39,7 @@ void RadixSort::count(int exponent){
     int columns_number = columnManager->getNumber();
     // Temporary array will be used 
     // to output values of count array
-    int temp[columnManager->getNumber()];
+    int temp[columns_number];
     // Count array will be used to perform 
     // counting sort, 10 items with value 0
     int count[10] = { 0 };
