@@ -8,8 +8,6 @@
 
 // user input for n of columns?
 
-void genRect(sf::RectangleShape rect, WindowManager *windowManager);
-
 int main()
 {
     int COLUMNS_NUMBER = 100;
