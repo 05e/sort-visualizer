@@ -50,21 +50,23 @@ Install CMake, to test if you have it installed simply type `cmake --version` in
 - Open terminal and set the directory as the project folder
 - Type `mkdir build` and press enter to create the build folder
 - Type `cd build` and press enter to access the build folder
-- Type `cmake ..` and press enter to link the files using cmake
-- Type `make` and press enter to compile & build to the `/build` folder
+- Type `cmake ..` and press enter to link the files using cmake (`cmake -G "MinGW Makefiles ..` for Windows)
+- Type `make` and press enter to compile & build to the `/build` folder (`mingw32-make.exe` for Windows)
 - Type `./a` and press enter to run the program
 - Done!
 
 # Not working?
 For further help, information, and requirements visit the github of the project template I used: https://github.com/lutrarutra/SFML-Project-Template
 
-# SFML
+# Extra
+## SFML
 This project uses the SFML library version 2.5.1.
 If you wish to update SFML you can download the latest version directly from the github (https://github.com/SFML/SFML) and replace the "SFML-2.5.1" folder with that version
 
-# Credits
+## Credits
 Skeleton project folder by lutrarutra https://github.com/lutrarutra/SFML-Project-Template
 
 ## To Do:
-- MacOS Resizing messes up columns
-- ?
+- Resizing messes up height after regenerating (see ColumnManager)
+- Merge sort windows crash
+- More algorithms?
