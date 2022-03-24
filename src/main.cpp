@@ -6,19 +6,9 @@
 #include "managers/application.hpp"
 
 
-//https://github.com/zedrex/algosketch
+// user input for n of columns?
 
-// sort alg. idea: at each step, check which items are sorted 
-// and randomly swap all the ones that aren't
-// https://www.geeksforgeeks.org/program-check-array-sorted-not-iterative-recursive/ 
-
-
-// radix sort
-// randomize, keep correct ones, randomize, etc.
-
-// user input for n of columns
-// ^^ window no worky :(
-
+void genRect(sf::RectangleShape rect, WindowManager *windowManager);
 
 int main()
 {
@@ -45,6 +35,10 @@ int main()
                     windowManager.terminateWindow();
                     break;
 
+                case sf::Event::Resized:
+                    if (windowManager.getSize().x < 400 || windowManager.getSize().y < 250) 
+                        windowManager.setSize(400, 250);
+                    break;
 
                 case sf::Event::KeyPressed:
 
@@ -66,20 +60,19 @@ int main()
                         sortManager.setSorted(false);
                     }
 
-                    if(event.key.code == sf::Keyboard::G){
+                    else if(event.key.code == sf::Keyboard::G){
                         columnManager.generate(sortManager.getSortType());
                         sortManager.setSorted(false);
                     }
 
-                    if(event.key.code == sf::Keyboard::Space) sortManager.sort();
+                    else if(event.key.code == sf::Keyboard::Space) sortManager.sort();
 
-                    if(event.key.code == sf::Keyboard::Num1) sortManager.setSortType(0);
-                    if(event.key.code == sf::Keyboard::Num2) sortManager.setSortType(1);
-                    if(event.key.code == sf::Keyboard::Num3) sortManager.setSortType(2);
-                    if(event.key.code == sf::Keyboard::Num4) sortManager.setSortType(3);
-                    if(event.key.code == sf::Keyboard::Num5) sortManager.setSortType(4);
-                    if(event.key.code == sf::Keyboard::Num6) sortManager.setSortType(5);
-                    
+                    else if(event.key.code == sf::Keyboard::Num1) sortManager.setSortType(0);
+                    else if(event.key.code == sf::Keyboard::Num2) sortManager.setSortType(1);
+                    else if(event.key.code == sf::Keyboard::Num3) sortManager.setSortType(2);
+                    else if(event.key.code == sf::Keyboard::Num4) sortManager.setSortType(3);
+                    else if(event.key.code == sf::Keyboard::Num5) sortManager.setSortType(4);
+                    else if(event.key.code == sf::Keyboard::Num6) sortManager.setSortType(5);
                     break;
                 
                 default:

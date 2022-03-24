@@ -31,6 +31,10 @@ sf::Vector2u WindowManager::getSize(){
     return this->window.getSize();
 }
 
+void WindowManager::setSize(int width, int height){
+    window.setSize(sf::Vector2u(width, height));
+}
+
 
 
 void WindowManager::render(const sf::Drawable &drawable)
@@ -78,7 +82,7 @@ void WindowManager::createWindow()
 {
     //Create Window w/ Settings
     this->window.create({this->windowSize.x, this->windowSize.y, 32}, "Sort Visualizer");
-    this->window.setFramerateLimit(60);
+    this->window.setFramerateLimit(30);
     this->window.setVerticalSyncEnabled(false);
 
     //Set Window Icon

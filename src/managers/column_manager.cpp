@@ -4,9 +4,12 @@
 ColumnManager::ColumnManager(int columns_number, WindowManager *windowManager, EventManager *eventManager){
     this->windowManager = windowManager;
     this->eventManager = eventManager;
-    
+
     this->columns_number = columns_number;
     this->width = (windowManager->getSize().x * 1.0) / (this->columns_number * 1.0);
+    // Must use the inital window height because SFML automatically
+    // scales size and position when resizing window
+    this->original_window_height = windowManager->getSize().y;
 }
 
 
@@ -89,15 +92,14 @@ void ColumnManager::render(){
 
     for(int i = 0; i < columns_number; i++){
 
-        sf::RectangleShape column = columns[i];
-            // Choose X position based on width and iteration
-            // counter, then change only the X Position of the 
-            // column because the Y has already been calculated
-            // when creating columns.
-            double posX = this->width * i;            
-            column.setPosition(posX, column.getPosition().y); 
+        // Choose X position based on width and iteration
+        // counter, then change only the X Position of the 
+        // column because the Y has already been calculated
+        // when creating columns.
+        double posX = this->width * i;     
+        columns[i].setPosition(posX, columns[i].getPosition().y); 
 
-            windowManager->render(column);
+        windowManager->render(columns[i]);
     }
 
     windowManager->displayWindow();
@@ -166,7 +168,7 @@ void ColumnManager::create(){
         // NOTE: ratio must be a double because when columns_number > window.y
         // it would be rounded to 0, which would still equal 0 when multiplied
         // by iteration counter
-        double ratio = (windowManager->getSize().y * 1.0) / (columns_number * 1.0);
+        double ratio = (original_window_height * 1.0) / (columns_number * 1.0);
         double height = ratio * (i+1);
         columns[i].setSize(sf::Vector2f(this->width, height));
 
@@ -174,8 +176,8 @@ void ColumnManager::create(){
         // is calculated in ColumnManager::render(), the y value puts
         // the bottom of the column at the bottom of the window.
         // This makes the columns go from the bottom up instead of the other 
-        // way around, which would be the default in SFML.
-        columns[i].setPosition(0, windowManager->getRenderWindow()->getSize().y - columns[i].getSize().y);
+        // way around, which would be the default in SFML as (0,0) = top left.
+        columns[i].setPosition(0, original_window_height - height);
 
         // If the column is large enough, set an outline
         // otherwise leave no outline. 

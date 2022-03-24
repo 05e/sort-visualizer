@@ -20,6 +20,7 @@ public:
     bool isRunning();
     sf::RenderWindow *getRenderWindow();
     sf::Vector2u getSize();
+    void setSize(int width, int height);
 
 private:
     void setupWindow(int windowWidth, int windowHeight);

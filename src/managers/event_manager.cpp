@@ -16,6 +16,11 @@ void EventManager::update(){
             this->windowManager->terminateWindow();
         }
 
+        else if(event.type == sf::Event::Resized){
+            if (windowManager->getSize().x < 400 || windowManager->getSize().y < 250) 
+                windowManager->setSize(400, 250);
+        }
+
         // Exit sorting button?
         // closing window in a loop won't close the app
 

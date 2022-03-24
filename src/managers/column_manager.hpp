@@ -19,7 +19,6 @@ class ColumnManager{
 
         ColumnManager(int columns_number, WindowManager *windowManager, EventManager *eventManager);
         
-        void generate();
         void generate(int sortType);
         void shuffle();
 
@@ -28,7 +27,6 @@ class ColumnManager{
         void highlight(int index1, int index2);
         void highlight(int index);
         void render();
-
 
         std::vector<sf::RectangleShape> getColumns();
         int getNumber();
@@ -42,6 +40,7 @@ class ColumnManager{
         int columns_number;
         int sortType;
         double width;
+        int original_window_height;
 
         void create();
         sf::Color getColor(int height);
