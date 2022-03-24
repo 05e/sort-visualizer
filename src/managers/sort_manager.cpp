@@ -71,12 +71,17 @@ void SortManager::setSortType(int sortType){
     *  5: RadixSort
     */
    
+    // For god knows what reason, if
+    // i dont log to console here the 
+    // program crashes on startup for Windows. FML
+   std::cout << "Selected Algorithm: ";
+    
    if(sortType != this->sortType){
         this->sortType = sortType;
 
         //Update Title
         this->windowManager->setTitle(getTitle());
-        std::cout << "Selected Algorithm: " << getTitle() << std::endl;
+        std::cout << getTitle() << std::endl;
 
         //Regen Columns
         this->columnManager->generate(this->sortType);
