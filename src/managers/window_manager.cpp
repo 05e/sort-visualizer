@@ -2,11 +2,12 @@
 
 WindowManager::WindowManager()
 {
-    this->setupWindow(800, 400);
+    this->setupWindow(1000, 600);
 }
 
 WindowManager::WindowManager(int windowWidth, int windowHeight)
 {
+    this->initialWindowSize = sf::Vector2u(windowWidth, windowHeight);
     this->setupWindow(windowWidth, windowHeight);
 }
 
@@ -31,8 +32,16 @@ sf::Vector2u WindowManager::getSize(){
     return this->window.getSize();
 }
 
+sf::Vector2u WindowManager::getInitialSize(){
+    return this->initialWindowSize;
+}
+
 void WindowManager::setSize(int width, int height){
     window.setSize(sf::Vector2u(width, height));
+}
+
+void WindowManager::setSize(sf::Vector2u size){
+    window.setSize(size);
 }
 
 

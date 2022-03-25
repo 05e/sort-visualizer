@@ -38,6 +38,7 @@ int main()
                         windowManager.setSize(400, 250);
                     break;
 
+
                 case sf::Event::KeyPressed:
 
                     /* KEYBINDS:

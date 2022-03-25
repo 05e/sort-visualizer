@@ -9,7 +9,7 @@ ColumnManager::ColumnManager(int columns_number, WindowManager *windowManager, E
     this->width = (windowManager->getSize().x * 1.0) / (this->columns_number * 1.0);
     // Must use the inital window height because SFML automatically
     // scales size and position when resizing window
-    this->original_window_height = windowManager->getSize().y;
+    this->original_window_height = windowManager->getInitialSize().y;
 }
 
 
@@ -28,11 +28,6 @@ int ColumnManager::getValueR(int index){
     return columns[index].getSize().y;
 }
 
-int ColumnManager::getNumber(){
-    return columns_number;
-}
-
-
 void ColumnManager::setValue(int index, int value){
     // Set height of columns[index] column to value
     // and update its position & color based on new height
@@ -43,6 +38,11 @@ void ColumnManager::setValue(int index, int value){
     columns[index].setFillColor(getColor(value));
 }
 
+int ColumnManager::getNumber(){
+    return columns_number;
+}
+
+
 void ColumnManager::swap(int index1, int index2){
     // Swap items in vector
     std::iter_swap(columns.begin() + index1, columns.begin() + index2);
@@ -52,8 +52,6 @@ void ColumnManager::swap(int index1, int index2){
     // it renders the window at every comparison, rendering
     // here would mean rendering the window at every swap)
 }
-
-
 
 void ColumnManager::highlight(int index1, int index2){
     //Save Color to reset it later
@@ -96,8 +94,8 @@ void ColumnManager::render(){
         // counter, then change only the X Position of the 
         // column because the Y has already been calculated
         // when creating columns.
-        double posX = this->width * i;     
-        columns[i].setPosition(posX, columns[i].getPosition().y); 
+        double posX = this->width * i;
+        columns[i].setPosition(posX, original_window_height - columns[i].getSize().y); 
 
         windowManager->render(columns[i]);
     }
@@ -109,10 +107,12 @@ void ColumnManager::render(){
 sf::Color ColumnManager::getColor(int height){
     // Set hue values for coloring 
     // based on column height
-    double max_height = (windowManager->getSize().y * 1.0);
-    double hue_shift = 255.0 / max_height;
+    float max_height = float(windowManager->getSize().y);
+    float hue_shift = float(255 / max_height);
     float hue_increase = hue_shift * (height);
     float hue_decrease = 255 - hue_increase;
+
+    std::cout << hue_shift << ", " << hue_increase << ", " << hue_decrease << std::endl;
 
     switch(sortType){
         case 0:

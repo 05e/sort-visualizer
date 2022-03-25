@@ -19,15 +19,21 @@ public:
 
     bool isRunning();
     sf::RenderWindow *getRenderWindow();
+
     sf::Vector2u getSize();
+    sf::Vector2u getInitialSize();
+
     void setSize(int width, int height);
+    void setSize(sf::Vector2u);
 
 private:
     void setupWindow(int windowWidth, int windowHeight);
     void createWindow();
 
     sf::RenderWindow window;
+
     sf::Vector2u windowSize;
+    sf::Vector2u initialWindowSize;
     
     sf::Text title;
     sf::Font font;

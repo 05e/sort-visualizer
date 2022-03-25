@@ -68,5 +68,8 @@ Skeleton project folder by lutrarutra https://github.com/lutrarutra/SFML-Project
 
 ## To Do:
 - Merge sort crashes on Windows
+- Crash on startup on Windows (after window resize patch)
+- Column colors bug on wide windows
+- Closing window while sorting stalls
 - N. of columns as user input?
 - More algorithms?
