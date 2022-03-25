@@ -36,7 +36,11 @@ void MergeSort::merge(int low, int high, int mid){
 
     // Create temporary array where
     // values will be added onto
-    int temp[high];
+    // This is ugly because I could just
+    // have temp[high], but <C++11 doesn't allow
+    // variable size arrays so here we go
+    int max = columnManager->getNumber();
+    int temp[max];
 
     // Start indexes that will be used
     // to iterate through the arrays
@@ -101,6 +105,7 @@ void MergeSort::merge(int low, int high, int mid){
         temp_index++;
         right_index++;
     }
+
 
     // Once the temp array is finished,
     // set items of the real array
