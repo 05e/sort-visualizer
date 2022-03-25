@@ -96,7 +96,7 @@ void ColumnManager::render(){
         // when creating columns.
         double posX = this->width * i;
         columns[i].setPosition(posX, original_window_height - columns[i].getSize().y); 
-
+    
         windowManager->render(columns[i]);
     }
 
@@ -107,12 +107,10 @@ void ColumnManager::render(){
 sf::Color ColumnManager::getColor(int height){
     // Set hue values for coloring 
     // based on column height
-    float max_height = float(windowManager->getSize().y);
+    float max_height = float(original_window_height);
     float hue_shift = float(255 / max_height);
     float hue_increase = hue_shift * (height);
     float hue_decrease = 255 - hue_increase;
-
-    std::cout << hue_shift << ", " << hue_increase << ", " << hue_decrease << std::endl;
 
     switch(sortType){
         case 0:

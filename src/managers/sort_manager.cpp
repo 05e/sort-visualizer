@@ -3,6 +3,7 @@
 SortManager::SortManager(WindowManager *windowManager, ColumnManager *columnManager){
     this->windowManager = windowManager;
     this->columnManager = columnManager;
+    this->sortType = 69420; // Need to make this a random number because some compilers initialize ints as 0
 
     setSorted(false);
     setSortType(0); //Quicksort by default
@@ -71,11 +72,7 @@ void SortManager::setSortType(int sortType){
     *  5: RadixSort
     */
    
-    // For god knows what reason, if
-    // i dont log to console here the 
-    // program crashes on startup for Windows. FML
    std::cout << "Selected Algorithm: ";
-    
    if(sortType != this->sortType){
         this->sortType = sortType;
 

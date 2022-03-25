@@ -15,8 +15,7 @@
 #include "event_manager.hpp"
 
 class ColumnManager{
-    public:
-
+    public: 
         ColumnManager(int columns_number, WindowManager *windowManager, EventManager *eventManager);
         
         void generate(int sortType);
