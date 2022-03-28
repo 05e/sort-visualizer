@@ -56,6 +56,7 @@ Install CMake, to test if you have it installed simply type `cmake --version` in
 - Done!
 
 # Not working?
+For Windows: make sure the msys installation path is correct in `CMakeLists.txt`
 For further help, information, and requirements visit the github of the project template I used: https://github.com/lutrarutra/SFML-Project-Template
 
 # Extra
@@ -68,5 +69,5 @@ Skeleton project folder by lutrarutra https://github.com/lutrarutra/SFML-Project
 
 ## To Do:
 - Stop sorting mid-sorting
-- N. of columns as user input?
+- N. of columns as user input
 - More algorithms?
